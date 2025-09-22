@@ -10,6 +10,20 @@
     rel="stylesheet"
   />
   <style>
+    .section-decouvrez .card {
+  height: 250px; /* Réduit la hauteur des cases */
+  overflow: hidden; /* Empêche le contenu de dépasser */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-decouvrez .card img {
+  max-height: 150px; /* Ajuste la taille de l’image */
+  object-fit: cover; /* Évite la déformation */
+}
+
     body {
       background-color: #f9fbe7; /* jaune très clair */
       color: #2e7d32; /* vert foncé */
@@ -655,3 +669,4 @@
 </html>
 </content>
 </create_file>
+
