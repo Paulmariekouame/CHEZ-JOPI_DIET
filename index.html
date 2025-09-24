@@ -1,29 +1,19 @@
-                    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JOPI DIET - Plats sains & Tisanes en abonnement</title>
-  <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
   <style>
-    .section-decouvrez .card {
-  height: 250px; /* Réduit la hauteur des cases */
-  overflow: hidden; /* Empêche le contenu de dépasser */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.section-decouvrez .card img {
-  max-height: 150px; /* Ajuste la taille de l’image */
-  object-fit: cover; /* Évite la déformation */
-}
-
+    /*
+      ** Changement : Rendu les cartes de la galerie uniformes et plus esthétiques.
+      ** J'ai supprimé la règle .section-decouvrez .card, qui n'était pas utilisée dans votre HTML,
+      ** et j'ai ajouté des règles pour dimensionner uniformément la zone média des cartes.
+    */
     body {
       background-color: #f9fbe7; /* jaune très clair */
       color: #2e7d32; /* vert foncé */
@@ -118,6 +108,21 @@
       transform: translateY(30px) scale(0.95);
       animation: bounceIn 1s ease-out forwards;
       animation-delay: var(--delay);
+      /* **Changement : La carte est maintenant un conteneur flex pour un alignement vertical parfait** */
+      display: flex;
+      flex-direction: column;
+    }
+    /* **Nouveau : Conteneur pour l'image et la vidéo qui garantit une hauteur uniforme** */
+    .media-card-media {
+      width: 100%;
+      height: 200px; /* **Hauteur fixe pour tous les médias** */
+      overflow: hidden;
+    }
+    .media-card-media img, .media-card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* **Garde le ratio d'aspect sans déformation** */
+      display: block; /* **Supprime les espaces indésirables sous l'image** */
     }
     @keyframes bounceIn {
       0% { opacity: 0; transform: translateY(30px) scale(0.95); }
@@ -215,7 +220,6 @@
   </style>
 </head>
 <body>
-  <!-- Navbar avec espace pour le logo -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -259,7 +263,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section avec parallax -->
   <header class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1350&q=80');">
     <div class="hero-overlay"></div>
     <div class="container py-5 text-center text-white position-relative hero-content">
@@ -278,7 +281,6 @@
     </div>
   </header>
 
-  <!-- About Section -->
   <section id="about" class="container my-5 animate-on-scroll">
     <div class="row">
       <div class="col-lg-8">
@@ -295,66 +297,75 @@
     </div>
   </section>
 
-  <!-- Media Gallery Section (6 cases esthétique) -->
   <section id="media" class="container my-5">
     <h2 class="section-title text-center">Découvrez notre univers</h2>
     <div class="media-grid">
-      <!-- 6 cases : 3 images et 3 vidéos avec animations -->
       <div class="media-card" style="--delay: 0.1s;">
-        <img src="platcomplet.jpg" alt="Plat sain équilibré avec légumes frais et protéines" class="lazy-load" onload="this.classList.remove('lazy-load');" />
+        <div class="media-card-media">
+          <img src="platcomplet.jpg" alt="Plat sain équilibré avec légumes frais et protéines" class="lazy-load" onload="this.classList.remove('lazy-load');" />
+        </div>
         <div class="media-card-body">
           <div class="media-card-title">Plat sain équilibré</div>
           <p>Un repas nourrissant et savoureux, prêt à être dégusté.</p>
         </div>
       </div>
       <div class="media-card" style="--delay: 0.3s;">
-        <video controls preload="metadata" class="lazy-load" onload="this.classList.remove('lazy-load');">
-          <source src="annonce.mp4" type="video/mp4" />
-          Votre navigateur ne supporte pas la vidéo.
-        </video>
+        <div class="media-card-media">
+          <video controls preload="metadata" class="lazy-load" onload="this.classList.remove('lazy-load');">
+            <source src="annonce.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+        </div>
         <div class="media-card-body">
           <div class="media-card-title">Qu'attendez vous ?!</div>
           <p>Découvrez Ce Que sa fait de manger sain.</p>
         </div>
       </div>
       <div class="media-card" style="--delay: 0.5s;">
-        <img src="thee1.jpg" alt="Tisane naturelle aux plantes relaxantes" class="lazy-load" onload="this.classList.remove('lazy-load');" />
+        <div class="media-card-media">
+          <img src="thee1.jpg" alt="Tisane naturelle aux plantes relaxantes" class="lazy-load" onload="this.classList.remove('lazy-load');" />
+        </div>
         <div class="media-card-body">
           <div class="media-card-title">Tisane naturelle</div>
           <p>Une infusion relaxante à base d'herbes sélectionnées.</p>
         </div>
       </div>
       <div class="media-card" style="--delay: 0.7s;">
-        <video controls preload="metadata" class="lazy-load" onload="this.classList.remove('lazy-load');">
-          <source src="annonce.mp4" type="video/mp4" />
-          Votre navigateur ne supporte pas la vidéo.
-        </video>
+        <div class="media-card-media">
+          <video controls preload="metadata" class="lazy-load" onload="this.classList.remove('lazy-load');">
+            <source src="annonce.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+        </div>
         <div class="media-card-body">
           <div class="media-card-title">Qu'attendez vous ?!</div>
           <p>Nos clients partagent leur expérience avec JOPI DIET.</p>
         </div>
       </div>
       <div class="media-card" style="--delay: 0.9s;">
-        <img src="platoeuf.jpg" alt="Abonnement personnalisé aux plats sains" class="lazy-load" onload="this.classList.remove('lazy-load');" />
+        <div class="media-card-media">
+          <img src="platoeuf.jpg" alt="Abonnement personnalisé aux plats sains" class="lazy-load" onload="this.classList.remove('lazy-load');" />
+        </div>
         <div class="media-card-body">
           <div class="media-card-title">Abonnement personnalisé</div>
           <p>Choisissez votre formule d'abonnement via WhatsApp.</p>
         </div>
       </div>
       <div class="media-card" style="--delay: 1.1s;">
-        <video controls preload="metadata" class="lazy-load" onload="this.classList.remove('lazy-load');">
-          <source src="annonce.mp4" type="video/mp4" />
-          Votre navigateur ne supporte pas la vidéo.
-        </video>
+        <div class="media-card-media">
+          <video controls preload="metadata" class="lazy-load" onload="this.classList.remove('lazy-load');">
+            <source src="annonce.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+        </div>
         <div class="media-card-body">
-          <div class="media-card-title">Qu'attendez vous ?!</div></div>
+          <div class="media-card-title">Qu'attendez vous ?!</div>
           <p>Petits conseils pour une vie saine inspirés de nos experts.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
   <section id="products" class="container my-5">
     <h2 class="section-title text-center">Nos produits</h2>
     <div class="row g-5 justify-content-center">
@@ -385,7 +396,6 @@
     </div>
   </section>
 
-  <!-- Order Tisane Section -->
   <section id="order-tisane" class="container my-5 animate-on-scroll">
     <div class="row">
       <div class="col-lg-8">
@@ -462,7 +472,6 @@
     </div>
   </section>
 
-  <!-- Order Food Subscription Section -->
   <section id="order-food" class="container my-5 animate-on-scroll">
     <div class="row">
       <div class="col-lg-8">
@@ -547,7 +556,6 @@
     </div>
   </section>
 
-  <!-- Footer professionnel -->
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -578,7 +586,6 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -667,6 +674,3 @@
   </script>
 </body>
 </html>
-</content>
-</create_file>
-
